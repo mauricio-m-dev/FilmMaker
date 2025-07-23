@@ -1,0 +1,11 @@
+{
+    "name": "gmh/gerenciador-de-filmes",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Gmh\\GerenciadorDeFilmes\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}
