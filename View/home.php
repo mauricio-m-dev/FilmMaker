@@ -9,7 +9,7 @@ $userController = new UserController();
 $userInfo = null;
 
 if (!$userController->isLogged()) {
-  header('Locantion: ../index.php');
+  header('Location: ../index.php');
   exit();
 }
 
