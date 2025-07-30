@@ -1,3 +1,31 @@
+<?php
+require_once '../vendor/autoload.php';
+
+use Controller\useController;
+
+$userController = new UserController();
+
+$registerUserMessage = '';
+
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if(isset($_POST['user_fiullname'], $_POST['email'], $_POST['password'])) {
+        $user_fullname = $_POST['user_fullname'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        if($userController->checkUserByEmail($email)) {
+            $registerUserMessage = "E-mail já cadastrado.";
+        } else {
+            if($userController->createUser($user_fullname, $email, $password)) {
+                header('Location: ../index.php');
+                exit();
+            } else {
+                $registerUserMessage = "Erro ao cadastrar usuário.";
+            }
+        }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>

@@ -65,18 +65,6 @@ class User
 
             $connection->execute();
 
-            // fetch = querySelector();
-            // fetchAll = querySelectorAll();
-
-            // FETCH_ASSOC:
-            // $user[
-            //     "user_fullname" => "teste",
-            //     "email" => "teste@example.com"
-            // ]
-
-            // COMO OBTER INFORMAÇÕES:
-            // $user['user_fullname'];
-
             return $connection->fetch(PDO::FETCH_ASSOC);
         } catch (PDOException $error) {
             die("Erro ao obter informações do usuário: " . $error->getMessage());

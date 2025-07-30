@@ -1,3 +1,23 @@
+<?php
+require_once 'vendor/autoload.php';
+
+use Controller\UserController;
+
+$userController = new UserController;
+$loginMenssage = '';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    if ($userControlle->login($email, $password)) {
+        header('Location: View/home.php');
+        exit();
+    } else {
+        $loginMenssage = "Email ou senha incorretos.";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="pt">
 <head>

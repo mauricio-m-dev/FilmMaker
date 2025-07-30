@@ -1,3 +1,25 @@
+<?php
+session_start();
+require_once '../vendor/autoload.php';
+
+use Controller\UserController;
+
+$userController = new UserController();
+
+$userInfo = null;
+
+if (!$userController->isLogged()) {
+  header('Locantion: ../index.php');
+  exit();
+}
+
+$user_id = $_SESSION ['id'];
+$user_fullname = $_SESSION ['user_fullname'];
+$email = $_SESSION ['email'];
+
+$userInfo = $userController->getUserData($user_id, $user_fullname, $email);
+
+?>
 <!DOCTYPE html>
 <html lang="pt">
 <head>
