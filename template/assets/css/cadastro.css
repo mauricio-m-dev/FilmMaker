@@ -63,6 +63,7 @@
     color: #888;
 }
 
+/* Remove sublinhado e herda cor para links dentro do botão minimalista */
 .btn-minimal a {
     color: inherit;
     text-decoration: none;
